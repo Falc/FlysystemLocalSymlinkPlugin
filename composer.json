@@ -1,0 +1,22 @@
+{
+    "name": "falc/flysystem-local-symlink-plugin",
+    "description": "Local symlink plugin for Flysystem.",
+    "keywords": ["local", "symlink", "flysystem", "plugin"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aitor García",
+            "email": "aitor.falc@gmail.com",
+            "homepage": "http://aitorgarcia.org/"
+        }
+    ],
+    "require": {
+        "league/flysystem": "0.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Falc\\Flysystem\\Plugin\\Symlink\\Local\\": "src/"
+        }
+    }
+}
