@@ -53,11 +53,11 @@ class Symlink implements PluginInterface
      *
      * @see http://php.net/manual/en/function.symlink.php Documentation of symlink().
      *
-     * @param   string  $symlink    Symlink name.
      * @param   string  $target     Symlink target.
+     * @param   string  $symlink    Symlink name.
      * @return  boolean             True on success. False on failure.
      */
-    public function handle($symlink, $target)
+    public function handle($target, $symlink)
     {
         return symlink($target, $symlink);
     }

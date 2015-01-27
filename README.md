@@ -21,8 +21,6 @@ Using composer:
 This plugin requires a `Filesystem` instance using the [Local adapter](http://flysystem.thephpleague.com/adapter/local/).
 
 ```php
-<?php
-
 use Falc\Flysystem\Plugin\Symlink\Local as LocalSymlinkPlugin;
 use League\Flysystem\Adapter\Local as LocalAdapter;
 use League\Flysystem\Filesystem;
@@ -32,12 +30,12 @@ $filesystem = new Filesystem(new LocalAdapter('/'));
 
 ### Symlink
 
-Use `symlink($symlink, $target)` to create a symlink.
+Use `symlink($target, $symlink)` to create a symlink.
 
 ```php
 $filesystem->addPlugin(new LocalSymlinkPlugin\Symlink());
 
-$success = $filesystem->symlink('/tmp/symlink', '/tmp/some/target');
+$success = $filesystem->symlink('/tmp/some/target', '/tmp/symlink');
 ```
 
 ### DeleteSymlink
