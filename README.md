@@ -2,7 +2,7 @@
 
 ## Requirements
 
-+ [Flysystem](http://flysystem.thephpleague.com/) >= 0.5.0
++ [Flysystem](http://flysystem.thephpleague.com/) >= 1.0.0
 
 ## Installation
 
@@ -11,7 +11,7 @@ Using composer:
 ```json
 {
     "require": {
-        "falc/flysystem-local-symlink-plugin": "dev-master"
+        "falc/flysystem-local-symlink-plugin": "1.*"
     }
 }
 ```
