@@ -59,6 +59,9 @@ class Symlink implements PluginInterface
      */
     public function handle($target, $symlink)
     {
+        $target = $this->filesystem->getAdapter()->applyPathPrefix($target);
+        $symlink = $this->filesystem->getAdapter()->applyPathPrefix($symlink);
+
         return symlink($target, $symlink);
     }
 }

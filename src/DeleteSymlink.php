@@ -58,6 +58,8 @@ class DeleteSymlink implements PluginInterface
      */
     public function handle($symlink)
     {
+        $symlink = $this->filesystem->getAdapter()->applyPathPrefix($symlink);
+
         if (!is_link($symlink)) {
             return false;
         }

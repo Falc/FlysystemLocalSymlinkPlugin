@@ -58,6 +58,8 @@ class IsSymlink implements PluginInterface
      */
     public function handle($filename)
     {
+        $filename = $this->filesystem->getAdapter()->applyPathPrefix($filename);
+
         return is_link($filename);
     }
 }
