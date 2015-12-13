@@ -8,6 +8,12 @@
 
 Using composer:
 
+```
+composer require falc/flysystem-local-symlink-plugin
+```
+
+Or add it manually:
+
 ```json
 {
     "require": {
@@ -56,4 +62,26 @@ Use `isSymlink($filename)` to check if a file exists and is a symlink.
 $filesystem->addPlugin(new LocalSymlinkPlugin\IsSymlink());
 
 $isSymlink = $filesystem->isSymlink('/tmp/symlink');
+```
+
+### Full and relative paths
+
+The above examples show how to create symlinks using `/` as root and full paths. But it is possible to use relative paths too.
+
+```php
+use Falc\Flysystem\Plugin\Symlink\Local as LocalSymlinkPlugin;
+use League\Flysystem\Adapter\Local as LocalAdapter;
+use League\Flysystem\Filesystem;
+
+$filesystem = new Filesystem(new LocalAdapter('/home/falc'));
+$filesystem->addPlugin(new LocalSymlinkPlugin\Symlink());
+$filesystem->addPlugin(new LocalSymlinkPlugin\IsSymlink());
+$filesystem->addPlugin(new LocalSymlinkPlugin\DeleteSymlink());
+
+// Result: /home/falc/flytest -> /home/falc/projects/cli/flytest
+$filesystem->symlink('projects/cli/flytest', 'flytest');
+
+// It is possible to check it or delete it in the same way:
+$isSymlink = $filesystem->isSymlink('flytest');
+$filesystem->deleteSymlink('flytest');
 ```
