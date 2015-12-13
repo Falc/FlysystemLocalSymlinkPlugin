@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2015-12-13)
+
+ * Append the adapter root to allow relative paths.
+
 ## 1.1.0 (2015-03-11)
 
  * Change the required version for `league/flysystem` (~1.0).
